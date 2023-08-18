@@ -2,13 +2,26 @@ module Playground exposing (main)
 
 import Html
 
-escapeEarth myVelocity mySpeed =
-    if myVelocity > 11.186 then
+escapeEarth myVelocity mySpeed fuelStatus=
+    let
+        escapeVelocityInKmPerSec =
+            11.86
+
+        orbitalSpeedInKmPerSec =
+            7.86
+
+        whereToLand =
+            if fuelStatus == "low" then
+                "Land on droneship"
+            else
+                "Land on launchpad"
+    in
+    if myVelocity > escapeVelocityInKmPerSec then
         "Godspeed"
-    else if mySpeed == 7.67 then
+    else if mySpeed == orbitalSpeedInKmPerSec then
         "Stay in orbit"
     else
-        "Come back"
+        whereToLand
 
 computeSpeed distance time =
     distance / time
@@ -26,4 +39,5 @@ divide e f =
     e / f
 
 main =
-    Html.text <| String.fromFloat <| add 5 <| multiply 10 <| divide 30 10
+    escapeEarth 10 6.7 "low"
+        |> Html.text
