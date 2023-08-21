@@ -1,3 +1,7 @@
+{-
+   The Playground module is used to experiment with
+   various concepts in Elm programming language.
+ -}
 module Playground exposing (main)
 
 import Html
