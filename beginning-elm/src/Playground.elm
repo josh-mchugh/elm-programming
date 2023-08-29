@@ -62,5 +62,19 @@ weekday dayInNumber =
             "Unknown day"
 
 
+descending a b =
+    case compare a b of
+        LT ->
+            GT
+        GT ->
+            LT
+        EQ ->
+            EQ
+
+
 main =
-    Html.text <| weekday 5
+    divide 30 10
+        |> multiply 10
+        |> add 5
+        |> String.fromFloat
+        |> Html.text
