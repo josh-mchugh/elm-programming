@@ -91,7 +91,27 @@ validateEmail email =
         ( "Invalid email", "red" )
 
 
+multiplyByFive number =
+    let
+        multiplier =
+            5
+    in
+    number * multiplier
+
+
+scoreMultiplier =
+    2
+
+
+hightestScores =
+    [ 316, 320, 312, 370, 337, 318, 314 ]
+
+
+doubleScores scores =
+    List.map (\x -> x * scoreMultiplier) scores
+
+
 main =
-    validateEmail "thedude@rubix.com"
+    doubleScores hightestScores
         |> Debug.toString
         |> Html.text
